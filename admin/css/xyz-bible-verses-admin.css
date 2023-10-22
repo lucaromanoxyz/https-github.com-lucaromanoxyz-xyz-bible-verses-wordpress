@@ -1,0 +1,47 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+
+.xyz-bible-verses-container .documentation article code {
+	font-size: 12px;
+}
+.xyz-bible-verses-container .editor {
+	display: flex;
+	flex-direction: row;
+	gap: 25px;
+	margin: 15px 0;
+}
+
+.xyz-bible-verses-container .editor article {
+	flex: 1;
+}
+
+.xyz-bible-verses-container .editor article table {
+	display: flex;
+	background: white;
+	padding: 20px 25px;
+	border-radius: 25px;
+}
+
+.xyz-bible-verses-container .editor article table th {
+	width: 100px;
+}
+
+.xyz-bible-verses-container .editor article table td .form-select {
+	margin-bottom: 0.5rem;
+	width: 100%;
+}
+
+@media screen and (max-width: 1500px) {
+	.xyz-bible-verses-container .editor article table th {
+		width: 50px;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.xyz-bible-verses-container .editor {
+		flex-direction: column;
+	}
+}
