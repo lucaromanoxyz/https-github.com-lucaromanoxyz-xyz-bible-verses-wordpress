@@ -165,6 +165,8 @@ class Xyz_Bible_Verses_Admin
 					</p>
 					<p>
 						<code>reference</code>: <?php _e('indicates the biblical verses to retrieve. In this example, <i>Luke 1:1-20</i>.', XYZ_BIBLE_VERSES_DOMAIN) ?>
+					</p><p>
+						<code>sentence</code>: <?php _e('indicates the text to search for within the version. For example, <i>Your faith has healed you.', XYZ_BIBLE_VERSES_DOMAIN) ?>
 					</p>
 					<p>
 						<code>notes</code>: <?php _e('indicates whether notes should be included in the verses. To not include notes, do not pass the attribute, as in this examples.', XYZ_BIBLE_VERSES_DOMAIN) ?>
@@ -290,24 +292,24 @@ class Xyz_Bible_Verses_Admin
 						<h2><?php _e('Version\'s code', XYZ_BIBLE_VERSES_DOMAIN) ?></h2>
 						<table>
 							<thead>
-								<tr>
-									<th align="left">Bible version</th>
-									<th align="left">Code</th>
-								</tr>
+							<tr>
+								<th align="left">Bible version</th>
+								<th align="left">Code</th>
+							</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>Authorized King James Version</td>
-									<td>KJV</td>
-								</tr>
-								<tr>
-									<td>Bibbia Diodati</td>
-									<td>DIO</td>
-								</tr>
-								<tr>
-									<td>Nuova Riveduta 1996</td>
-									<td>NR96</td>
-								</tr>
+							<tr>
+								<td>Authorized King James Version</td>
+								<td>KJV</td>
+							</tr>
+							<tr>
+								<td>Bibbia Diodati</td>
+								<td>DIO</td>
+							</tr>
+							<tr>
+								<td>Nuova Riveduta 1996</td>
+								<td>NR96</td>
+							</tr>
 							</tbody>
 						</table>
 					</div>
