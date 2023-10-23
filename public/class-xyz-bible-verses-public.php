@@ -22,7 +22,7 @@
  */
 class Xyz_Bible_Verses_Public
 {
-	private string $url = "http://lucaromano.local/api/v1";
+	private string $url = "https://lucaromano.xyz/api/v1";
 	/**
 	 * The ID of this plugin.
 	 *
