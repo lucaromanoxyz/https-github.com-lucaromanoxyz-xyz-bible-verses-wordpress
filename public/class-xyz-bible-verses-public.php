@@ -22,7 +22,7 @@
  */
 class Xyz_Bible_Verses_Public
 {
-	private string $url = "https://lucaromano.xyz/api/v1";
+	private string $url = "http://lucaromano.local/api/v1";
 	/**
 	 * The ID of this plugin.
 	 *
@@ -110,57 +110,24 @@ class Xyz_Bible_Verses_Public
 	 * Retrieve bible verses from API
 	 * @param string $version
 	 * @param string $reference
+	 * @param string $sentence
 	 * @param bool $notes
 	 * @return array|null
 	 */
-	private function get_verses_by_reference(string $version, string $reference, bool $notes): ?array
+	private function get_verses(string $version, string $reference, string $sentence, bool $notes): ?array
 	{
 		// query parameters
 		$parameters = [
 			'version' => $version,
 			'reference' => $reference,
-		];
-		if ($notes) {
-			$parameters['notes'] = 'true';
-		}
-		$response = wp_safe_remote_get(
-			$this->url . '/references?' . http_build_query($parameters),
-			array(
-				'timeout' => 30,
-			)
-		);
-
-		// Se cè un errore termina tutto e manda un risultato negativo
-		if (is_wp_error($response)) {
-			return null;
-		}
-
-		// Decodifico i dati della chiamata
-		$apiResponse = wp_remote_retrieve_body($response);
-
-		// Ritorno la risposta del servizio
-		return json_decode($apiResponse, true);
-	}
-
-	/**
-	 * Retrieve bible verses from API
-	 * @param string $version
-	 * @param string $sentence
-	 * @param bool $notes
-	 * @return array|null
-	 */
-	private function get_verses_by_sentence(string $version, string $sentence, bool $notes): ?array
-	{
-		// query parameters
-		$parameters = [
-			'version' => $version,
 			'sentence' => $sentence,
+			'notes' => $notes,
 		];
 		if ($notes) {
 			$parameters['notes'] = 'true';
 		}
 		$response = wp_safe_remote_get(
-			$this->url . '/sentences?' . http_build_query($parameters),
+			$this->url . '/search?' . http_build_query($parameters),
 			array(
 				'timeout' => 30,
 			)
@@ -237,13 +204,9 @@ class Xyz_Bible_Verses_Public
 		if (!trim($a['version']) || (!trim($a['reference']) && !trim($a['sentence']))) {
 			return __('Missing version or reference', XYZ_BIBLE_VERSES_DOMAIN);
 		} else {
-			if (trim($a['reference'])) {
-				// get verses
-				$passages = $this->get_verses_by_reference($a['version'], $a['reference'], $a['notes']);
-			} else if (trim($a['sentence'])) {
-				// get verses
-				$passages = $this->get_verses_by_sentence($a['version'], $a['sentence'], $a['notes']);
-			}
+			// get verses
+			$passages = $this->get_verses($a['version'], $a['reference'], $a['sentence'], $a['notes']);
+
 			$html = "";
 			foreach ($passages as $passage) {
 				$reference = $passage["reference"];

@@ -23,5 +23,11 @@ Although this first version of the plugin is focused on including biblical verse
 
 == Changelog ==
 
+= 1.2.0 =
+* Add search by sentence in references.
+
+= 1.1.0 =
+* Add search by sentence.
+
 = 1.0,0 =
 * First release with highlight of words and sentences.
