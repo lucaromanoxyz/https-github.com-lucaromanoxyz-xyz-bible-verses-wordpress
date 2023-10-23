@@ -22,6 +22,8 @@ This is an example of the shortcode to use.
 
 <code>reference</code>: indicates the biblical verses to retrieve. In this example, <i>Luke 1:1-20</i>.
 
+<code>sentence</code>: indicates the text to search for within the version. For example, <i>Your faith has healed you</i>.
+
 <code>notes</code>: indicates whether notes should be included in the verses. To not include notes, do not pass the attribute, as in this examples.
 
 <code>underline</code>: indicates the word or the sentences to underline. Below is the pattern to follow.
