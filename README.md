@@ -108,12 +108,23 @@ Put in bold <i>all</i> the occourrence of `Elisabeth` and the _second_, the _thi
 
 ## English
 
-- Authorized King James Version (1611 / 1769)
+| Version                          | Year        | Code       |
+| -------------------------------- | ----------- | ---------- |
+| King James Version Authorized    | 1611 / 1769 | KJV        |
+| Young's Literal Translation      | 1962        | YLT        |
 
 ## Italian
 
-- Bibbia Diodati (1649)
-- Nuova Riveduta (1996)
+| Version             | Year | Code  |
+| ------------------- | ---- | ----- |
+| Diodati             | 1877 | DDT   |
+| Martini             | 1781 | MRT   |
+| Nuova Diodati       | 1991 | NDDT  |
+| Nuova Riveduta 2006 | 2006 | NR06  |
+| Ricciotti           | 1940 | RCC   |
+| Riveduta            | 1990 | RIV   |
+| Riveduta 2020       | 2020 | RIV20 |
+| Tintori             | 1931 | TNT   |
 
 ## Coming soon
 
@@ -125,11 +136,3 @@ Put in bold <i>all</i> the occourrence of `Elisabeth` and the _second_, the _thi
 - NET Bible®
 - Tyndale Bible
 - World English Bible
-
-## Version's code
-
-| Bible version                 | Code |
-| ----------------------------- | ---- |
-| Authorized King James Version | KJV  |
-| Bibbia Diodati                | DIO  |
-| Nuova Riveduta 1996           | NR96 |

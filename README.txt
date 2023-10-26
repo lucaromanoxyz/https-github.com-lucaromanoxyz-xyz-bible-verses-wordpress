@@ -23,6 +23,12 @@ Although this first version of the plugin is focused on including biblical verse
 
 == Changelog ==
 
+= 1.3.0 =
+* Added other Bibles
+
+= 1.2.1 =
+* Bug fixing
+
 = 1.2.0 =
 * Add search by sentence in references.
 
