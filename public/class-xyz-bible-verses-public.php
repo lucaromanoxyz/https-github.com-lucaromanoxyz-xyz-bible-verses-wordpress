@@ -110,11 +110,11 @@ class Xyz_Bible_Verses_Public
 	 * Retrieve bible verses from API
 	 * @param string $version
 	 * @param string $reference
-	 * @param string $sentence
-	 * @param bool $notes
+	 * @param string|null $sentence
+	 * @param bool|null $notes
 	 * @return array|null
 	 */
-	private function get_verses(string $version, string $reference, string $sentence, bool $notes): ?array
+	private function get_verses(string $version, string $reference, ?string $sentence = null, ?bool $notes = null): ?array
 	{
 		// query parameters
 		$parameters = [
@@ -122,10 +122,18 @@ class Xyz_Bible_Verses_Public
 			'reference' => $reference,
 			'sentence' => $sentence,
 			'notes' => $notes,
+			'group_by' => 'VERSION'
 		];
-		if ($notes) {
-			$parameters['notes'] = 'true';
+
+		// remove `sentence` if isn't sent
+		if (is_null($sentence)) {
+			unset($parameters["sentence"]);
 		}
+		// remove `notes` if isn't sent
+		if (is_null($notes)) {
+			unset($parameters["notes"]);
+		}
+
 		$response = wp_safe_remote_get(
 			$this->url . '/search?' . http_build_query($parameters),
 			array(
@@ -175,7 +183,7 @@ class Xyz_Bible_Verses_Public
 		}
 		// highlight words
 		$found = 0;
-		return preg_replace_callback('/' . trim($search) . '/', function ($matches) use (&$found, $parsed_occourrences, $wrapper) {
+		return preg_replace_callback('/' . trim($search) . '/i', function ($matches) use (&$found, $parsed_occourrences, $wrapper) {
 			$found++;
 			if (count($parsed_occourrences) == 0 || (count($parsed_occourrences) > 0 && in_array($found, $parsed_occourrences))) {
 				return "<{$wrapper}>{$matches[0]}</{$wrapper}>";
@@ -195,17 +203,21 @@ class Xyz_Bible_Verses_Public
 		$a = shortcode_atts(array(
 			'version' => '',
 			'reference' => '',
-			'sentence' => '',
-			'notes' => false,
+			'sentence' => null,
+			'notes' => null,
 			'underline' => '',
 			'bold' => '',
 		), $atts);
 
-		if (!trim($a['version']) || (!trim($a['reference']) && !trim($a['sentence']))) {
+		if (!trim($a['version']) || (!trim($a['reference']) && is_null($a['sentence']))) {
 			return __('Missing version or reference', XYZ_BIBLE_VERSES_DOMAIN);
 		} else {
 			// get verses
-			$passages = $this->get_verses($a['version'], $a['reference'], $a['sentence'], $a['notes']);
+			$resultset = $this->get_verses($a['version'], $a['reference'], $a['sentence'], $a['notes']);
+			// because it is mono-version, extract the first
+			if (count($resultset)) {
+				$passages = $resultset[0]["data"];
+			}
 
 			$html = "";
 			foreach ($passages as $passage) {
