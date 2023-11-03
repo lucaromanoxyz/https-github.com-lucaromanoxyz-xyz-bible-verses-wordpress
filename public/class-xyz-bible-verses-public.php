@@ -162,10 +162,14 @@ class Xyz_Bible_Verses_Public
 	 */
 	private function wrap_substring(string $text, string $pattern, string $wrapper): string
 	{
-		list($search, $replacements) = explode(":", $pattern);
-
-
-		if ($replacements) {
+		if (strpos($pattern, ":")) {
+			list($search, $replacements) = explode(":", $pattern);
+		} else {
+			$search = $pattern;
+			$replacements = null;
+		}
+		$occourrences = [];
+		if (!is_null($replacements)) {
 			$occourrences = explode(",", $replacements);
 		}
 		// search range
