@@ -165,8 +165,9 @@ class Xyz_Bible_Verses_Admin
 					</p>
 					<p>
 						<code>reference</code>: <?php _e('indicates the biblical verses to retrieve. In this example, <i>Luke 1:1-20</i>.', XYZ_BIBLE_VERSES_DOMAIN) ?>
-					</p><p>
-						<code>sentence</code>: <?php _e('indicates the text to search for within the version. For example, <i>Your faith has healed you.', XYZ_BIBLE_VERSES_DOMAIN) ?>
+					</p>
+					<p>
+						<code>sentence</code>: <?php _e('indicates the text to search for within the version. For example, <i>Your faith has healed you.</i>', XYZ_BIBLE_VERSES_DOMAIN) ?>
 					</p>
 					<p>
 						<code>notes</code>: <?php _e('indicates whether notes should be included in the verses. To not include notes, do not pass the attribute, as in this examples.', XYZ_BIBLE_VERSES_DOMAIN) ?>
@@ -208,7 +209,8 @@ class Xyz_Bible_Verses_Admin
 							<strong><?php _e('Example:', XYZ_BIBLE_VERSES_DOMAIN) ?></strong>
 						</p>
 						<p>
-							<code>[xyz_bible_verses version="KJV" reference="Lk 1:1-20"	underline="Zacharias|Elisabeth"]</code>
+							<code>[xyz_bible_verses version="KJV" reference="Lk 1:1-20"
+								underline="Zacharias|Elisabeth"]</code>
 						</p>
 					</div>
 					<div>
@@ -238,7 +240,8 @@ class Xyz_Bible_Verses_Admin
 							<strong><?php _e('Example:', XYZ_BIBLE_VERSES_DOMAIN) ?></strong>
 						</p>
 						<p>
-							<code>[xyz_bible_verses version="KJV" reference="Lk 1:1-20" underline="Zacharias:2,4"]</code>
+							<code>[xyz_bible_verses version="KJV" reference="Lk 1:1-20"
+								underline="Zacharias:2,4"]</code>
 						</p>
 					</div>
 					<div>
@@ -253,7 +256,8 @@ class Xyz_Bible_Verses_Admin
 							<strong><?php _e('Example:', XYZ_BIBLE_VERSES_DOMAIN) ?></strong>
 						</p>
 						<p>
-							<code>[xyz_bible_verses version="KJV" reference="Lk 1:1-20" underline="Zacharias:2,6...8"]</code>
+							<code>[xyz_bible_verses version="KJV" reference="Lk 1:1-20"
+								underline="Zacharias:2,6...8"]</code>
 						</p>
 					</div>
 					<div>
@@ -268,7 +272,8 @@ class Xyz_Bible_Verses_Admin
 							<strong><?php _e('Example:', XYZ_BIBLE_VERSES_DOMAIN) ?></strong>
 						</p>
 						<p>
-							<code>[xyz_bible_verses version="KJV" reference="Lk 1:1-20" underline="Elisabeth:1,3|Zacharias:1" bold="Elisabeth|Zacharias:2...4"]</code>
+							<code>[xyz_bible_verses version="KJV" reference="Lk 1:1-20"
+								underline="Elisabeth:1,3|Zacharias:1" bold="Elisabeth|Zacharias:2...4"]</code>
 						</p>
 					</div>
 				</article>
@@ -277,16 +282,116 @@ class Xyz_Bible_Verses_Admin
 					<h1><?php _e('Available versions of the Bible', XYZ_BIBLE_VERSES_DOMAIN) ?></h1>
 					<div>
 						<h2><?php _e('English', XYZ_BIBLE_VERSES_DOMAIN) ?></h2>
-						<ul>
-							<li>Authorized King James Version (1611 / 1769)</li>
-						</ul>
+						<table cellpadding="5">
+							<thead align="left">
+							<tr>
+								<th><?php _e('Name', XYZ_BIBLE_VERSES_DOMAIN) ?></th>
+								<th><?php _e('Year', XYZ_BIBLE_VERSES_DOMAIN) ?></th>
+								<th><?php _e('Code', XYZ_BIBLE_VERSES_DOMAIN) ?></th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>American Standard Version</td>
+								<td> 1901</td>
+								<td> ASV</td>
+							</tr>
+							<tr>
+								<td>Bishops</td>
+								<td> 1568</td>
+								<td> BIS</td>
+							</tr>
+							<tr>
+								<td>Coverdale</td>
+								<td> 1535</td>
+								<td> TCB</td>
+							</tr>
+							<tr>
+								<td>Geneva Bible</td>
+								<td> 1560</td>
+								<td> GEB</td>
+							</tr>
+							<tr>
+								<td>King James Version Authorized</td>
+								<td> 1769</td>
+								<td> KJV</td>
+							</tr>
+							<tr>
+								<td>New English Translation</td>
+								<td> 2001</td>
+								<td> NET</td>
+							</tr>
+							<tr>
+								<td>Tyndale Bible</td>
+								<td> 1526</td>
+								<td> TYN</td>
+							</tr>
+							<tr>
+								<td>World English Bible</td>
+								<td> 1901</td>
+								<td> WEB</td>
+							</tr>
+							<tr>
+								<td>Young's Literal Translation</td>
+								<td> 1865</td>
+								<td> YLT</td>
+							</tr>
+							</tbody>
+						</table>
 					</div>
 					<div>
 						<h2><?php _e('Italian', XYZ_BIBLE_VERSES_DOMAIN) ?></h2>
-						<ul>
-							<li>Bibbia Diodati (1649)</li>
-							<li>Nuova Riveduta (1996)</li>
-						</ul>
+						<table cellpadding="5">
+							<thead align="left">
+							<tr>
+								<th><?php _e('Name', XYZ_BIBLE_VERSES_DOMAIN) ?></th>
+								<th><?php _e('Year', XYZ_BIBLE_VERSES_DOMAIN) ?></th>
+								<th><?php _e('Code', XYZ_BIBLE_VERSES_DOMAIN) ?></th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>Diodati</td>
+								<td> 1607</td>
+								<td> DDT</td>
+							</tr>
+							<tr>
+								<td>Martini</td>
+								<td> 1781</td>
+								<td> MRT</td>
+							</tr>
+							<tr>
+								<td>Nuova Diodati</td>
+								<td> 1991</td>
+								<td> NDDT</td>
+							</tr>
+							<tr>
+								<td>Nuova Riveduta 2006</td>
+								<td> 2006</td>
+								<td> NR06</td>
+							</tr>
+							<tr>
+								<td>Ricciotti</td>
+								<td> 1940</td>
+								<td> RCC</td>
+							</tr>
+							<tr>
+								<td>Riveduta (LUZZI)</td>
+								<td> 1925</td>
+								<td> LUZZI</td>
+							</tr>
+							<tr>
+								<td>Riveduta 2020</td>
+								<td> 2020</td>
+								<td> RIV20</td>
+							</tr>
+							<tr>
+								<td>Tintori</td>
+								<td> 1931</td>
+								<td> TNT</td>
+							</tr>
+							</tbody>
+						</table>
 					</div>
 					<div>
 						<h2><?php _e('Version\'s code', XYZ_BIBLE_VERSES_DOMAIN) ?></h2>

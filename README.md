@@ -108,31 +108,32 @@ Put in bold <i>all</i> the occourrence of `Elisabeth` and the _second_, the _thi
 
 ## English
 
-| Version                          | Year        | Code       |
-| -------------------------------- | ----------- | ---------- |
-| King James Version Authorized    | 1611 / 1769 | KJV        |
-| Young's Literal Translation      | 1962        | YLT        |
+| Version                       | Year | Code |
+| ----------------------------- | ---- | ---- |
+| American Standard Version     | 1901 | ASV  |
+| Bishops                       | 1568 | BIS  |
+| Coverdale                     | 1535 | TCB  |
+| Geneva Bible                  | 1560 | GEB  |
+| King James Version Authorized | 1769 | KJV  |
+| New English Translation       | 2001 | NET  |
+| Tyndale Bible                 | 1526 | TYN  |
+| World English Bible           | 1901 | WEB  |
+| Young's Literal Translation   | 1865 | YLT  |
 
 ## Italian
 
 | Version             | Year | Code  |
 | ------------------- | ---- | ----- |
-| Diodati             | 1877 | DDT   |
+| Diodati             | 1607 | DDT   |
 | Martini             | 1781 | MRT   |
 | Nuova Diodati       | 1991 | NDDT  |
 | Nuova Riveduta 2006 | 2006 | NR06  |
 | Ricciotti           | 1940 | RCC   |
-| Riveduta            | 1990 | RIV   |
+| Riveduta (LUZZI)    | 1925 | LUZZI |
 | Riveduta 2020       | 2020 | RIV20 |
 | Tintori             | 1931 | TNT   |
 
 ## Coming soon
 
 - American Standard Version w Strong's
-- Bishops Bible
-- Coverdale Bible
-- Geneva Bible
 - KJV with Strongs
-- NET Bible®
-- Tyndale Bible
-- World English Bible
