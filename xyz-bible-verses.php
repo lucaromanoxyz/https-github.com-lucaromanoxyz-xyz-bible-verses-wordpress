@@ -16,7 +16,7 @@
  * Plugin Name:       XYZ Bible Verses
  * Plugin URI:        https://github.com/lucaromanoxyz/xyz-bible-verses-wordpress
  * Description:       This plugin enables the shortcode to include the biblical verses available on the site https://lucaromano.xyz/bible in your Wordpress site.
- * Version:           1.3.0
+ * Version:           1.5.0
  * Author:            Luca Romano
  * Author URI:        https://lucaromano.xyz/
  * License:           GPL-2.0+
