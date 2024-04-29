@@ -22,7 +22,7 @@
  */
 class Xyz_Bible_Verses_Public
 {
-	private string $url = "https://www.bibbia.xyz/api/v1";
+	private string $url = "https://bibbia.xyz/api/v1";
 	/**
 	 * The ID of this plugin.
 	 *
@@ -30,7 +30,7 @@ class Xyz_Bible_Verses_Public
 	 * @access   private
 	 * @var      string $plugin_name The ID of this plugin.
 	 */
-	private $plugin_name;
+	private string $plugin_name;
 
 	/**
 	 * The version of this plugin.
@@ -39,7 +39,7 @@ class Xyz_Bible_Verses_Public
 	 * @access   private
 	 * @var      string $version The current version of this plugin.
 	 */
-	private $version;
+	private string $version;
 
 	/**
 	 * Initialize the class and set its properties.
@@ -220,13 +220,21 @@ class Xyz_Bible_Verses_Public
 			$resultset = $this->get_verses($a['version'], $a['reference'], $a['sentence'], $a['notes']);
 			// because it is mono-version, extract the first
 			if (count($resultset)) {
-				$passages = $resultset[0]["data"];
+				$current = $resultset[0];
 			}
 
 			$html = "";
+			$passages = $current["data"];
+			$version_code = $current["code"];
+
 			foreach ($passages as $passage) {
 				$reference = $passage["reference"];
-				$text = $passage["text"];
+
+				if (is_array($passage["text"])) {
+					$text = "<p>" . implode("</p><p>", $passage["text"]) . "</p>";
+				} else {
+					$text = "<p>" . $passage["text"] . "</p>";
+				}
 
 				// check for underline
 				$underline = explode("|", $a['underline']);
@@ -247,11 +255,11 @@ class Xyz_Bible_Verses_Public
 				$html .= '<' . get_option('xyz_bible_verses_verse_container_tag') . ' class="' . get_option('xyz_bible_verses_verse_container_class') . '">
 							<' . get_option('xyz_bible_verses_verse_reference_tag') . ' class="' . get_option('xyz_bible_verses_verse_reference_class') . '">' . $reference . '</' . get_option('xyz_bible_verses_verse_reference_tag') . '>
 							<' . get_option('xyz_bible_verses_verse_text_tag') . ' class="' . get_option('xyz_bible_verses_verse_text_class') . '">' . $text . '</' . get_option('xyz_bible_verses_verse_text_tag') . '>
+							<a class="xyz-bible-credits" target="_blank" href="https://www.bibbia.xyz/app/it/leggi?version[]=' . $version_code . '&reference=' . $reference . '">bibbia.xyz</a>
 						</' . get_option('xyz_bible_verses_verse_container_tag') . '>';
 			}
 
 			return $html;
 		}
 	}
-
 }

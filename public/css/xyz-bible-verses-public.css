@@ -17,3 +17,9 @@
 .xyz-bible-verse .xyz-bible-verse-text .xyz-bible-verse-number {
 	font-size: 0.5em;
 }
+
+.xyz-bible-verse .xyz-bible-credits {
+	font-style: italic;
+	display: flex;
+	justify-content: flex-end;
+}
