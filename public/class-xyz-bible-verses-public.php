@@ -204,20 +204,21 @@ class Xyz_Bible_Verses_Public
 	 */
 	public function create_shortcode(array $atts)
 	{
-		$a = shortcode_atts(array(
+		$attributes = shortcode_atts(array(
 			'version' => '',
 			'reference' => '',
 			'sentence' => null,
 			'notes' => null,
 			'underline' => '',
 			'bold' => '',
+			'language' => 'it'
 		), $atts);
 
-		if (!trim($a['version']) || (!trim($a['reference']) && is_null($a['sentence']))) {
+		if (!trim($attributes['version']) || (!trim($attributes['reference']) && is_null($attributes['sentence']))) {
 			return __('Missing version or reference', XYZ_BIBLE_VERSES_DOMAIN);
 		} else {
 			// get verses
-			$resultset = $this->get_verses($a['version'], $a['reference'], $a['sentence'], $a['notes']);
+			$resultset = $this->get_verses($attributes['version'], $attributes['reference'], $attributes['sentence'], $attributes['notes']);
 			// because it is mono-version, extract the first
 			if (count($resultset)) {
 				$current = $resultset[0];
@@ -237,7 +238,7 @@ class Xyz_Bible_Verses_Public
 				}
 
 				// check for underline
-				$underline = explode("|", $a['underline']);
+				$underline = explode("|", $attributes['underline']);
 				foreach ($underline as $pattern) {
 					if (trim($pattern)) {
 						$text = $this->wrap_substring($text, $pattern, "u");
@@ -245,17 +246,28 @@ class Xyz_Bible_Verses_Public
 				}
 
 				// check for bold
-				$bold = explode("|", $a['bold']);
+				$bold = explode("|", $attributes['bold']);
 				foreach ($bold as $pattern) {
 					if (trim($pattern)) {
 						$text = $this->wrap_substring($text, $pattern, "strong");
 					}
 				}
 
+				// link for read on bible.xyz
+				switch ($attributes['language']) {
+					case "en":
+						$link_url = "en/read";
+						$link_text = "Read on";
+						break;
+					default:
+						$link_url = "it/leggi";
+						$link_text = "Leggi su";
+				}
+
 				$html .= '<' . get_option('xyz_bible_verses_verse_container_tag') . ' class="' . get_option('xyz_bible_verses_verse_container_class') . '">
 							<' . get_option('xyz_bible_verses_verse_reference_tag') . ' class="' . get_option('xyz_bible_verses_verse_reference_class') . '">' . $reference . '</' . get_option('xyz_bible_verses_verse_reference_tag') . '>
 							<' . get_option('xyz_bible_verses_verse_text_tag') . ' class="' . get_option('xyz_bible_verses_verse_text_class') . '">' . $text . '</' . get_option('xyz_bible_verses_verse_text_tag') . '>
-							<a class="xyz-bible-credits" target="_blank" href="https://www.bibbia.xyz/app/it/leggi?version[]=' . $version_code . '&reference=' . $reference . '">bibbia.xyz</a>
+							<a class="xyz-bible-credits" target="_blank" href="https://www.bibbia.xyz/app/' . $link_url . '?version[]=' . $version_code . '&reference=' . $reference . '">' . $link_text . ' bibbia.xyz</a>
 						</' . get_option('xyz_bible_verses_verse_container_tag') . '>';
 			}
 
