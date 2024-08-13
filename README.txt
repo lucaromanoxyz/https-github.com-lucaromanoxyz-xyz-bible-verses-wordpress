@@ -23,6 +23,15 @@ Although this first version of the plugin is focused on including biblical verse
 
 == Changelog ==
 
+= 1.6.0 =
+* Added link language selection via attributes
+
+= 1.5.0 =
+* Added link to bibbia.xyz
+
+= 1.4.0 =
+* Bug fixing
+
 = 1.3.0 =
 * Added other Bibles
 

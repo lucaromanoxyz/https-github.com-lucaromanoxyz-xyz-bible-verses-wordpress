@@ -30,6 +30,8 @@ This is an example of the shortcode to use.
 
 <code>bold</code>: indicates the word or the sentences to put in bold. Below is the pattern to follow.
 
+<code>language</code>: indicates the language in which to open the application bible.xyz. Default: `it`. Available: `en`.
+
 ## How to underline or put in bold
 
 Through the <code>underline</code> and <code>bold</code> attributes, you have the possibility to underline or bold words or sentences. Both works in the same way.
@@ -102,6 +104,18 @@ Put in bold <i>all</i> the occourrence of `Elisabeth` and the _second_, the _thi
 
 ```
 [xyz_bible_verses version="KJV" reference="Lk 1:1-20" underline="Elisabeth:1,3|Zacharias:1" bold="Elisabeth|Zacharias:2...4"]
+```
+
+# Change link language
+
+To change the language of the link to the bible.xyz application, and consequently the language in which the application will open, use the `language` attribute.
+
+#### Example:
+
+Set language to `en`.
+
+```
+[xyz_bible_verses version="KJV" reference="Luke 1:1" language="en"]
 ```
 
 # Available versions of the Bible
